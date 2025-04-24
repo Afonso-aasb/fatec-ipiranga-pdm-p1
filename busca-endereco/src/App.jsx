@@ -2,6 +2,7 @@ import { Component } from "react";
 import { Busca } from "./components/Busca.jsx";
 import { LocalidadeLista } from "./components/LocalidadeLista.jsx";
 import cepClient from "./utils/cepClient.js";
+import Grafico from "./components/Grafico.jsx";
 
 export class App extends Component {
   constructor(props) {
@@ -47,6 +48,9 @@ export class App extends Component {
             <Busca onBuscaRealizada={this.onBuscaRealizada} />
             <LocalidadeLista localidades={localidadesBuscadas} />
           </div>
+          <div className="flex flex-col w-6">
+             <Grafico localidades={localidadesBuscadas} />
+           </div>
         </div>
       </>
     );
