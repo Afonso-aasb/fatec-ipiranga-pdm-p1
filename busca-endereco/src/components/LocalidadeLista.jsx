@@ -2,51 +2,34 @@ import { Component } from "react";
 import { Card } from "primereact/card";
 
 export class LocalidadeLista extends Component {
-  state = {
-    localidades: [
-      {
-        cep: "04094-050",
-        logradouro: "Avenida Pedro Álvares Cabral",
-        localidade: "Parque Ibirapuera",
-        estado: "São Paulo",
-        uf: "SP",
-      },
-      {
-        cep: "55592-970",
-        logradouro: "Rua dos Navegantes",
-        localidade: "Vila de Porto de Galinhas",
-        estado: "Ipojuca",
-        uf: "PE",
-      },
-    ],
-    localidadesBuscadas: [],
-  };
-
   render() {
-    const { localidades } = this.state;
+    const { localidades } = this.props;
 
-    const LocalidadeCard = ({ cep, logradouro, localidade, estado, uf }) => (
+    const LocalidadeCard = ({ cep, logradouro, bairro, localidade, uf }) => (
       <div className="w-full p-1 mb-4 rounded-lg shadow-md">
         <Card className="w-full text-center border-2 border-black">
           <p className="text-xl">{cep}</p>
           <p>{logradouro}</p>
-          <p>{localidade}</p>
-          <p>{estado} - {uf}</p>
+          <p>{bairro}</p>
+          <p>{localidade} - {uf}</p>
         </Card>
       </div>
     );
 
     return (
       <>
-        {localidades.map((item) => (
-          <LocalidadeCard
-            cep={item.cep}
-            logradouro={item.logradouro}
-            localidade={item.localidade}
-            estado={item.estado}
-            uf={item.uf}
-          />
-        ))}
+        {localidades && localidades.length > 0 &&
+          localidades.map((item) => (
+            <LocalidadeCard
+              key={item.cep}
+              cep={item.cep}
+              logradouro={item.logradouro}
+              bairro={item.bairro}
+              localidade={item.localidade}
+              uf={item.uf}
+            />
+          ))
+        }
       </>
     );
   }

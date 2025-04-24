@@ -38,12 +38,14 @@ export class App extends Component {
   };
 
   render() {
+    const { localidadesBuscadas } = this.state;
+
     return (
       <>
         <div className="flex w-full">
           <div className="flex-column w-6 justify-content-center p-4">
             <Busca onBuscaRealizada={this.onBuscaRealizada} />
-            <LocalidadeLista localidades={this.state.localidadesBuscadas} />
+            <LocalidadeLista localidades={localidadesBuscadas} />
           </div>
         </div>
       </>
