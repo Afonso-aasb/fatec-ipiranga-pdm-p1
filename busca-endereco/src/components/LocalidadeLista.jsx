@@ -19,6 +19,7 @@ export class LocalidadeLista extends Component {
         uf: "PE",
       },
     ],
+    localidadesBuscadas: [],
   };
 
   render() {

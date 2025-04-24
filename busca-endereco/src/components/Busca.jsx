@@ -14,7 +14,7 @@ export class Busca extends Component {
 
   onFormSubmit = (event) => {
     event.preventDefault();
-    alert(this.state.cep);
+    this.props.onBuscaRealizada(this.state.cep)
   };
 
   render() {
